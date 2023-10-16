@@ -5,18 +5,19 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        final double PI = 3.14;
+
         String name = "Linus";
         Integer luckynum = 11;
-        System.out.print("What is your radius?");
+        System.out.println("What is your radius?");
         Scanner scanner = new Scanner(System.in);
 
-        String input = scanner.next();
-        Integer num = Integer.parseInt(input);
+        double radius = scanner.nextDouble();
 
-        if (num.equals(luckynum)) {
-            System.out.println("You got lucky!");
-        } else {
-            System.out.println("No luck for you");
-        }
+        double circumference = 2 * PI * radius;
+
+        System.out.println("The circumference is " + circumference);
+
+
     }
 }
