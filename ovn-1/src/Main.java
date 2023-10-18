@@ -7,8 +7,6 @@ public class Main {
     public static void main(String[] args) {
         final double PI = 3.14;
 
-        String name = "Linus";
-        Integer luckynum = 11;
         System.out.println("What is your radius?");
         Scanner scanner = new Scanner(System.in);
 
