@@ -8,7 +8,7 @@ public class Main {
 
         myFloat = myInt;
         myDouble = myFloat;
-        System.out.printf("Windening cast: %.10f %.10f %d\n", myDouble, myFloat, myInt);
+        System.out.printf("Widening cast: %.10f %.10f %d\n", myDouble, myFloat, myInt);
         myDouble = 3.1423290308238;
         myFloat = (float) myDouble;
         myInt = (int) myFloat;

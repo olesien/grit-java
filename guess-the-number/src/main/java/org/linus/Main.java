@@ -29,13 +29,11 @@ public class Main {
         //Variable declarations
         Scanner scanner = new Scanner(System.in);
         Random rand = new Random();
-        int i = 0;
         int luckyNum = rand.nextInt(100) ;
         int guessCount = 0;
         int bestGuessCount = 0;
         System.out.println("Guess a number between 0 and 100!");
-        while (i < 10000000) { //The reason this is not "true" is to prevent an accidental infinite loop
-            i++;
+        while (true) {
            boolean isRight = guess(scanner, luckyNum);
            guessCount++;
            if (isRight) {
