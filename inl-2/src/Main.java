@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class Main {
 
+    //This method exists to check if product is discounted, and
+    //if so it adds to the text to tell the customer that it is discounted
     public static String discount(int discountBy) {
         if (discountBy == 0) {
             return ""; //There is no discount
@@ -14,11 +16,14 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Customer customer = new Customer();
 
+        //Decided to use an interface to allow both classes to fit into the array.
+        //Another feasible solution would be to make use of a method to make the class on the fly (with Discount being optional), and thus not use an array directly.
         ArrayList<ProductI> products = new ArrayList<ProductI>();
         products.add(new DiscountedProduct("Fake Spider", 100.10, 1, 50));
         products.add(new Product("Eye", 70.10, 33));
         products.add(new Product("Scary Doll", 1000.10, 2));
 
+        //Re-loop the list until user has entered 4 (or whichever end value it is) and is done shopping.
         boolean StillShopping = true;
         while (StillShopping) {
             for (int i = 1; i <= products.size() + 1; i++) {
