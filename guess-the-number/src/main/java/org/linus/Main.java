@@ -29,7 +29,7 @@ public class Main {
         //Variable declarations
         Scanner scanner = new Scanner(System.in);
         Random rand = new Random();
-        int luckyNum = rand.nextInt(100) ;
+        int luckyNum = rand.nextInt(101) ;
         int guessCount = 0;
         int bestGuessCount = 0;
         System.out.println("Guess a number between 0 and 100!");
@@ -53,7 +53,7 @@ public class Main {
                    System.out.println("Your record is still " + bestGuessCount);
                }
                guessCount = 0;
-               luckyNum = rand.nextInt(100);
+               luckyNum = rand.nextInt(101);
            }
         }
     }
