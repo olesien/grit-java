@@ -16,7 +16,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Customer customer = new Customer();
 
-        //Decided to use an interface to allow both classes to fit into the array.
+        //Decided to use an interface to allow both classes to fit into the array. Initially this was of type "Product"
         //Another feasible solution would be to make use of a method to make the class on the fly (with Discount being optional), and thus not use an array directly.
         ArrayList<ProductI> products = new ArrayList<ProductI>();
         products.add(new DiscountedProduct("Fake Spider", 100.10, 1, 50));
