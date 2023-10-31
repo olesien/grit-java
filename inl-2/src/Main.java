@@ -2,12 +2,20 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+
+    public static String discount(int discountBy) {
+        if (discountBy == 0) {
+            return ""; //There is no discount
+        } else {
+            return "(DISCOUNT! " + discountBy + "% off!)";
+        }
+    }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Customer customer = new Customer();
 
-        ArrayList<Product> products = new ArrayList<Product>();
-        products.add(new Product("Fake Spider", 100.10, 1));
+        ArrayList<ProductI> products = new ArrayList<ProductI>();
+        products.add(new DiscountedProduct("Fake Spider", 100.10, 1, 50));
         products.add(new Product("Eye", 70.10, 33));
         products.add(new Product("Scary Doll", 1000.10, 2));
 
@@ -18,15 +26,16 @@ public class Main {
                 if (i == products.size() + 1) {
                     System.out.println(i + ". Quit");
                 } else {
-                    Product product = products.get(i - 1);
-                    System.out.printf("%d. %s %,.2f SEK, %d left%n", i, product.getName(), product.getPrice(), product.getAmountLeft());
+                    ProductI product = products.get(i - 1);
+
+                    System.out.printf("%d. %s %,.2f SEK, %d left %s%n", i, product.getName(), product.getPrice(), product.getAmountLeft(), discount(product.getDiscountBy()));
                 }
             }
             System.out.print("Choose your option: ");
             int answer = scanner.nextInt();
             if (answer > 0 && answer <= products.size()) {
                 //Check if we can buy one
-                Product product = products.get(answer - 1);
+                ProductI product = products.get(answer - 1);
                 boolean hasBought = product.buyOne();
                 if (!hasBought) {
                     System.out.println("Sorry but that item is out of stock!");

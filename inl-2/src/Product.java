@@ -1,4 +1,4 @@
-public class Product {
+public class Product implements ProductI {
     private String name;
     private double price;
 
@@ -10,23 +10,26 @@ public class Product {
         this.amountLeft = amountLeft;
     }
 
-    String getName () {
+    public String getName () {
         return name;
     }
 
-    double getPrice() {
+    public double getPrice() {
         return price;
-
     }
-    int getAmountLeft( ) {
+    public int getAmountLeft( ) {
         return amountLeft;
     }
 
-    boolean buyOne() {
+    public boolean buyOne() {
         if (amountLeft > 0) {
             amountLeft--;
             return true;
         }
         return false;
+    }
+
+    public int getDiscountBy() {
+        return 0;
     }
 }
