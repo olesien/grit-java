@@ -1,4 +1,4 @@
-public class DiscountedProduct extends Product implements ProductI {
+public class DiscountedProduct extends Product {
     private final int discountBy;
     DiscountedProduct(String name, double price, int amountLeft, int discountBy) {
         super(name, price, amountLeft);

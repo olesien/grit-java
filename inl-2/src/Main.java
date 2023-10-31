@@ -15,10 +15,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Customer customer = new Customer();
-
-        //Decided to use an interface to allow both classes to fit into the array. Initially this was of type "Product"
+        
         //Another feasible solution would be to make use of a method to make the class on the fly (with Discount being optional), and thus not use an array directly.
-        ArrayList<ProductI> products = new ArrayList<ProductI>();
+        ArrayList<Product> products = new ArrayList<Product>();
         products.add(new DiscountedProduct("Fake Spider", 100.10, 1, 50));
         products.add(new Product("Eye", 70.10, 33));
         products.add(new Product("Scary Doll", 1000.10, 2));
@@ -31,7 +30,7 @@ public class Main {
                 if (i == products.size() + 1) {
                     System.out.println(i + ". Quit");
                 } else {
-                    ProductI product = products.get(i - 1);
+                    Product product = products.get(i - 1);
 
                     System.out.printf("%d. %s %,.2f SEK, %d left %s%n", i, product.getName(), product.getPrice(), product.getAmountLeft(), discount(product.getDiscountBy()));
                 }
@@ -40,7 +39,7 @@ public class Main {
             int answer = scanner.nextInt();
             if (answer > 0 && answer <= products.size()) {
                 //Check if we can buy one
-                ProductI product = products.get(answer - 1);
+                Product product = products.get(answer - 1);
                 boolean hasBought = product.buyOne();
                 if (!hasBought) {
                     System.out.println("Sorry but that item is out of stock!");

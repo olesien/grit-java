@@ -1,4 +1,4 @@
-public class Product implements ProductI {
+public class Product{
     private String name;
     private double price;
 
