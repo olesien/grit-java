@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Customer customer = new Customer();
-        
+
         //Another feasible solution would be to make use of a method to make the class on the fly (with Discount being optional), and thus not use an array directly.
         ArrayList<Product> products = new ArrayList<Product>();
         products.add(new DiscountedProduct("Fake Spider", 100.10, 1, 50));
