@@ -32,13 +32,7 @@ public class HelloApplication extends Application {
             Button btn = new Button();
             btn.setText("Say 'Hello World' for id " + i);
             final int finalI = i;
-            btn.setOnAction(new EventHandler<ActionEvent>() {
-
-                @Override
-                public void handle(ActionEvent event) {
-                    System.out.println("Hello World! " + finalI);
-                }
-            });
+            btn.setOnAction(event -> System.out.println("Hello World! " + finalI));
             flow.getChildren().add(btn);
         }
 
