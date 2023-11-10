@@ -33,6 +33,10 @@ public class CustomDate {
         DayOfWeek currentDay = date.getDayOfWeek();
         weekday = makeFirstUpperCase(currentDay.name());
         dayAndMonth = String.format("%d%s of %s", date.getDayOfMonth(), getOrdinalNumber(date.getDayOfMonth()), makeFirstUpperCase(date.getMonth().name()));
+    }
 
+    boolean isToday() {
+        LocalDate currDate =LocalDate.now();
+        return currDate.equals(date);
     }
 }

@@ -26,7 +26,12 @@ public class DayUI {
         dayBox.minHeight(500.0);
         dayBox.maxWidth(200);
         dayBox.setPadding(new Insets(10, 10, 10, 10));
-        dayBox.setStyle("-fx-background-color: eee;");
+        if (currentDate.isToday()) {
+            dayBox.setStyle("-fx-background-color: bcedc4;");
+        } else {
+            dayBox.setStyle("-fx-background-color: eee;");
+        }
+
 
         Rectangle r = new Rectangle();
 
