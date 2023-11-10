@@ -10,6 +10,6 @@ module com.example.demo {
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
 
-    opens com.example.demo to javafx.fxml;
-    exports com.example.demo;
+    opens com.calendar to javafx.fxml;
+    exports com.calendar;
 }
