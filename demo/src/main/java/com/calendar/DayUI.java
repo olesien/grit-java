@@ -4,10 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -83,11 +80,16 @@ public class DayUI {
 
         header.getChildren().addAll(title, subtitle);
 
-
+        //List element
         ul = new VBox(10);
+        ScrollPane ulScroll = new ScrollPane(ul);
+        ulScroll.setPrefViewportHeight(325);
+
+
+
         ul.setMaxWidth(175);
         ul.setMinHeight(325);
-        ul.setMaxHeight(325);
+        //ul.setMaxHeight(325);
 
         List<Event> events = calendar.getEventNamesByDate(currentDate.date);
         //Append to list for each
@@ -112,7 +114,7 @@ public class DayUI {
         });
 
         //Add elements
-        dayBox.getChildren().addAll(header, ul, textField, btn);
+        dayBox.getChildren().addAll(header, ulScroll, textField, btn);
         stack.getChildren().add(r);
         stack.getChildren().add(dayBox);
     }

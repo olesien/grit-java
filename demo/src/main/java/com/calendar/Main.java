@@ -11,12 +11,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws IOException {
         CustomCalendar calendar = new CustomCalendar();
 
-        //weekday.getDayOfWeek(5);
-
         primaryStage.setTitle("Hello World!");
         UserInterface UI = new UserInterface(calendar);
 
-        //scroll.setContent(main);
         primaryStage.setScene(new Scene(UI.main, 1500, 500));
         primaryStage.show();
     }
