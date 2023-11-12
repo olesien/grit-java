@@ -8,8 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -20,6 +19,35 @@ import java.util.List;
 
 public class DayUI {
     StackPane stack;
+    private VBox ul;
+
+    private void setEvents(List<Event> events, CustomCalendar calendar, CustomDate currentDate) {
+        ul.getChildren().clear(); //Clear all children
+        for (Event event : events) {
+            System.out.println(event);
+            HBox li = new HBox();
+            li.setPadding(new Insets(2, 2, 2, 2));
+
+
+            Text txt = new Text();
+            txt.setWrappingWidth(100);
+            txt.setText(event.getContent());
+
+            Region r = new Region();
+            HBox.setHgrow(r, Priority.ALWAYS);
+
+            Button rmBtn = new Button();
+            rmBtn.setText("Remove");
+
+            rmBtn.setOnAction(rmEvent -> {
+                calendar.removeEvent(event);
+                setEvents(calendar.getEventNamesByDate(currentDate.date), calendar, currentDate); //Refresh
+            });
+            li.getChildren().addAll(txt, r, rmBtn);
+            ul.getChildren().add(li);
+
+        }
+    }
     DayUI(CustomDate currentDate, CustomCalendar calendar) {
         stack = new StackPane();
         VBox dayBox = new VBox();
@@ -56,9 +84,18 @@ public class DayUI {
         header.getChildren().addAll(title, subtitle);
 
 
-        ListView<String> list = new ListView<String>();
-        List<String> events = calendar.getEventNamesByDate(currentDate.date);
-        list.setItems( FXCollections.observableArrayList(events));
+        ul = new VBox(10);
+        ul.setMaxWidth(175);
+        ul.setMinHeight(325);
+        ul.setMaxHeight(325);
+
+        List<Event> events = calendar.getEventNamesByDate(currentDate.date);
+        //Append to list for each
+
+        setEvents(events, calendar, currentDate);
+        //list.setItems( FXCollections.observableArrayList(events));
+
+
 
         TextField textField = new TextField();
         textField.setTooltip(new Tooltip("Enter info"));
@@ -70,11 +107,12 @@ public class DayUI {
             calendar.addEvent(new Event(currentDate.date, textField.getText()));
             System.out.println(calendar.getEventNamesByDate(currentDate.date));
             textField.setText("");
-            list.setItems( FXCollections.observableArrayList(calendar.getEventNamesByDate(currentDate.date)));
+            setEvents(calendar.getEventNamesByDate(currentDate.date), calendar, currentDate);
+            //list.setItems( FXCollections.observableArrayList(calendar.getEventNamesByDate(currentDate.date)));
         });
 
         //Add elements
-        dayBox.getChildren().addAll(header, list, textField, btn);
+        dayBox.getChildren().addAll(header, ul, textField, btn);
         stack.getChildren().add(r);
         stack.getChildren().add(dayBox);
     }

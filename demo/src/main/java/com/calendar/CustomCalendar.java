@@ -50,14 +50,18 @@ public class CustomCalendar {
         return events;
     }
 
-    List<String> getEventNamesByDate(LocalDate date) {
-        return events.stream().filter(e-> e.getDate().equals(date)).map(e -> e.getContent()).collect(Collectors.toList());
+    List<Event> getEventNamesByDate(LocalDate date) {
+        return events.stream().filter(e-> e.getDate().equals(date)).collect(Collectors.toList());
     }
 
 
 
     void addEvent(Event newEvent) {
         events.add(newEvent);
+    }
+    void removeEvent(Event oldEvent) {
+
+        events.remove(oldEvent);
     }
 
 }
