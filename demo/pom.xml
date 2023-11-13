@@ -106,6 +106,31 @@
             <artifactId>jackson-core</artifactId>
             <version>2.14.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.xellitix.commons</groupId>
+            <artifactId>jackson-utils</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xellitix.commons</groupId>
+            <artifactId>jackson-utils</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xellitix.commons</groupId>
+            <artifactId>jackson-utils</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xellitix.commons</groupId>
+            <artifactId>jackson-utils</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson</groupId>
+            <artifactId>jackson-base</artifactId>
+            <version>2.14.2</version>
+        </dependency>
     </dependencies>
 
     <build>
