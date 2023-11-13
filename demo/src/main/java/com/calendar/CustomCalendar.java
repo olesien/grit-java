@@ -15,6 +15,10 @@ public class CustomCalendar {
     private LocalDate currentDate;
     private int weekOfYear;
     private int year;
+
+    private void saveFile() {
+        JSONObject obj = new JSONObject();
+    }
     CustomCalendar() {
         currentDate = LocalDate.now();
         calendar = Calendar.getInstance();
@@ -58,10 +62,11 @@ public class CustomCalendar {
 
     void addEvent(Event newEvent) {
         events.add(newEvent);
+        saveFile();
     }
     void removeEvent(Event oldEvent) {
-
         events.remove(oldEvent);
+        saveFile();
     }
 
 }
