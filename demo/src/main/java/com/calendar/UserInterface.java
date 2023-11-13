@@ -2,8 +2,13 @@ package com.calendar;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.control.Pagination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 public class UserInterface {
     public BorderPane main;
@@ -24,5 +29,26 @@ public class UserInterface {
         }
         flow.setAlignment(Pos.BASELINE_CENTER);
         main.setCenter(flow);
+
+        //HBox nav = new HBox();
+        Pagination pagination = new Pagination();
+        pagination.setPageCount(21);
+        pagination.setCurrentPageIndex(3);
+        pagination.setMaxPageIndicatorCount(1);
+
+        /*pagination.setPageFactory((pageIndex) -> {
+
+            Label label1 = new Label("Content for page with index: " + pageIndex);
+            label1.setFont(new Font("Arial", 24));
+
+            Label label2 = new Label("Main content of the page ...");
+
+            return new VBox(label1, label2);
+        });*/
+
+        VBox nav = new VBox(pagination);
+
+        main.setBottom(nav);
+
     }
 }
