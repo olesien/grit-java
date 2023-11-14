@@ -2,10 +2,12 @@ package com.calendar;
 import java.io.*;
 import java.time.DayOfWeek;
 import java.time.temporal.TemporalAdjusters;
+import java.time.temporal.WeekFields;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class CustomCalendar {
@@ -97,6 +99,18 @@ public class CustomCalendar {
     void removeEvent(Event oldEvent) {
         events.remove(oldEvent);
         saveFile();
+    }
+
+    int nextWeek() {
+        currentDate = currentDate.plusWeeks(1);
+        weekOfYear = currentDate.get(WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear());
+        return weekOfYear;
+    }
+
+    int prevWeek() {
+        currentDate = currentDate.minusWeeks(1);
+        weekOfYear = currentDate.get(WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear());
+        return weekOfYear;
     }
 
 }
