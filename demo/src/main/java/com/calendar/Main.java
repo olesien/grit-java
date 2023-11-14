@@ -14,7 +14,7 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World!");
         UserInterface UI = new UserInterface(calendar);
 
-        primaryStage.setScene(new Scene(UI.main, 1500, 500));
+        primaryStage.setScene(new Scene(UI.main, 1500, 600));
         primaryStage.show();
     }
 
