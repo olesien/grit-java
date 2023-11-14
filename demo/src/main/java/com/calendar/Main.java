@@ -14,7 +14,7 @@ public class Main extends Application {
         primaryStage.setTitle("Calendar");
         UserInterface UI = new UserInterface(calendar);
 
-        primaryStage.setScene(new Scene(UI.main, 1500, 620));
+        primaryStage.setScene(new Scene(UI.scrollBody, 1500, 620));
         primaryStage.show();
     }
 
