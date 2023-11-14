@@ -104,12 +104,14 @@ public class CustomCalendar {
     int nextWeek() {
         currentDate = currentDate.plusWeeks(1);
         weekOfYear = currentDate.get(WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear());
+        year = currentDate.getYear();
         return weekOfYear;
     }
 
     int prevWeek() {
         currentDate = currentDate.minusWeeks(1);
         weekOfYear = currentDate.get(WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear());
+        year = currentDate.getYear();
         return weekOfYear;
     }
 

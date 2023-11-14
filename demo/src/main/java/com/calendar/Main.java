@@ -11,10 +11,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws IOException {
         CustomCalendar calendar = new CustomCalendar();
 
-        primaryStage.setTitle("Hello World!");
+        primaryStage.setTitle("Calendar");
         UserInterface UI = new UserInterface(calendar);
 
-        primaryStage.setScene(new Scene(UI.main, 1500, 600));
+        primaryStage.setScene(new Scene(UI.main, 1500, 620));
         primaryStage.show();
     }
 

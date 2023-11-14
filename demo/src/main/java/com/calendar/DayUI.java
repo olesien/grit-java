@@ -48,10 +48,10 @@ public class DayUI {
     DayUI(CustomDate currentDate, CustomCalendar calendar) {
         stack = new StackPane();
         VBox dayBox = new VBox();
-        dayBox.setPadding(new Insets(0, 5, 0, 5));
+        dayBox.setPadding(new Insets(0, 2, 0, 2));
         dayBox.minHeight(500.0);
         dayBox.maxWidth(200);
-        dayBox.setPadding(new Insets(10, 10, 10, 10));
+        dayBox.setPadding(new Insets(10, 5, 10, 5));
         if (currentDate.isToday()) {
             dayBox.setStyle("-fx-background-color: bcedc4;");
         } else {
@@ -73,11 +73,11 @@ public class DayUI {
         //Start with title
         Text title = new Text();
         title.setText(currentDate.weekday);
-        title.setFont(Font.font("Segone UI", 30));
+        title.setFont(Font.font("Segone UI", 22));
 
         Text subtitle = new Text();
         subtitle.setText(currentDate.dayAndMonth);
-        subtitle.setFont(Font.font("Segone UI", 20));
+        subtitle.setFont(Font.font("Segone UI", 17));
 
         header.getChildren().addAll(title, subtitle);
 

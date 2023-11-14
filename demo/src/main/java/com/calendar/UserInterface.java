@@ -15,6 +15,8 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 public class UserInterface {
+
+    public HBox header;
     public BorderPane main;
     public FlowPane flow;
     void renderDays(CustomCalendar calendar) {
@@ -25,10 +27,21 @@ public class UserInterface {
         }
     }
     UserInterface(CustomCalendar calendar) {
+
+        //Calendar Header
+        Text calendarTitle = new Text("Calendar of " + String.valueOf(calendar.getYear()));
+        calendarTitle.setFont(Font.font("Segone UI", 22));
+        header = new HBox(calendarTitle);
+        header.setAlignment(Pos.CENTER);
+        header.setPadding(new Insets(10, 10, 10, 10));
+
+        //Define the main layout (all)
         main = new BorderPane();
         main.setPadding(new Insets(5, 0, 5, 0));
         main.setStyle("-fx-background-color: ddd;");
+        main.setTop(header);
 
+        //the actual calendar
         flow = new FlowPane();
         flow.setPadding(new Insets(5, 0, 5, 0));
         flow.setVgap(10);
@@ -50,12 +63,14 @@ public class UserInterface {
         Button prevWeekBtn = new Button("<");
         prevWeekBtn.setOnAction(e -> {
             currentWeek.setText("V. " + String.valueOf(calendar.prevWeek()));
+            calendarTitle.setText("Calendar of " + String.valueOf(calendar.getYear()));
             renderDays(calendar); //Rerender
         });
 
         Button nextWeekBtn = new Button(">");
         nextWeekBtn.setOnAction(e -> {
             currentWeek.setText("V. " + String.valueOf(calendar.nextWeek()));
+            calendarTitle.setText("Calendar of " + String.valueOf(calendar.getYear()));
             renderDays(calendar); //Rerender
         });
         nav.getChildren().addAll(prevWeekBtn, currentWeek, nextWeekBtn);
