@@ -103,19 +103,31 @@ public class DayUI {
         TextField textField = new TextField();
         textField.setTooltip(new Tooltip("Enter info"));
 
+
         Button btn = new Button();
+        btn.setPrefWidth(170);
+        //dayBox.setStyle("-fx-background-color: bcedc4;");
+        btn.setStyle("-fx-background-color: #6EB437; -fx-text-fill: #FFF");
+        btn.setPadding(new Insets(5, 5, 5, 5));
 
         btn.setText("Add Event");
         btn.setOnAction(event -> {
-            calendar.addEvent(new Event(currentDate.date, textField.getText()));
-            System.out.println(calendar.getEventNamesByDate(currentDate.date));
-            textField.setText("");
-            setEvents(calendar.getEventNamesByDate(currentDate.date), calendar, currentDate);
-            //list.setItems( FXCollections.observableArrayList(calendar.getEventNamesByDate(currentDate.date)));
+            if (!textField.getText().isEmpty()) {
+                calendar.addEvent(new Event(currentDate.date, textField.getText()));
+                System.out.println(calendar.getEventNamesByDate(currentDate.date));
+                textField.setText("");
+                setEvents(calendar.getEventNamesByDate(currentDate.date), calendar, currentDate);
+            }
+
         });
 
+        VBox btnWrapper = new VBox(btn);
+        btnWrapper.setPadding(new Insets(10, 0, 0, 0));
+        btnWrapper.setAlignment(Pos.CENTER);
+
         //Add elements
-        dayBox.getChildren().addAll(header, ulScroll, textField, btn);
+        dayBox.getChildren().addAll(header, ulScroll, textField, btnWrapper);
+
         stack.getChildren().add(r);
         stack.getChildren().add(dayBox);
     }
