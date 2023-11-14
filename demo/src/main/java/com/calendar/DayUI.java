@@ -23,18 +23,18 @@ public class DayUI {
         for (Event event : events) {
             System.out.println(event);
             HBox li = new HBox();
-            li.setPadding(new Insets(2, 2, 2, 2));
+            li.setPadding(new Insets(6, 10, 0, 10));
 
 
             Text txt = new Text();
-            txt.setWrappingWidth(100);
+            txt.setWrappingWidth(130);
             txt.setText(event.getContent());
 
             Region r = new Region();
             HBox.setHgrow(r, Priority.ALWAYS);
 
             Button rmBtn = new Button();
-            rmBtn.setText("Remove");
+            rmBtn.setText("\uD83D\uDDD1\uFE0F");
 
             rmBtn.setOnAction(rmEvent -> {
                 calendar.removeEvent(event);
@@ -48,6 +48,7 @@ public class DayUI {
     DayUI(CustomDate currentDate, CustomCalendar calendar) {
         stack = new StackPane();
         VBox dayBox = new VBox();
+        dayBox.setPadding(new Insets(0, 5, 0, 5));
         dayBox.minHeight(500.0);
         dayBox.maxWidth(200);
         dayBox.setPadding(new Insets(10, 10, 10, 10));
