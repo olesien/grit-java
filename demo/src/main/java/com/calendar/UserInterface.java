@@ -24,6 +24,9 @@ public class UserInterface {
     public FlowPane main;
     void renderDays(CustomCalendar calendar) {
         main.getChildren().clear();
+        //Loop to get monday to sunday, where monday is 1.
+        //Get day of week compares the current day number of the week, then adds or removes days based on that.
+        //Eg, if i is 2, and we are on monday, we want to add 1 day to the date. If we are on wednesday and i is 1, we remove 2.
         for (int i = 1; i <= 7; i++) {
             DayUI dayui = new DayUI(calendar.getDayOfWeek(i), calendar);
             main.getChildren().add(dayui.stack);

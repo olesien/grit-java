@@ -21,7 +21,6 @@ public class DayUI {
     private void setEvents(List<Event> events, CustomCalendar calendar, CustomDate currentDate) {
         ul.getChildren().clear(); //Clear all children
         for (Event event : events) {
-            System.out.println(event);
             HBox li = new HBox();
             li.setPadding(new Insets(6, 10, 0, 10));
 
@@ -114,7 +113,6 @@ public class DayUI {
         btn.setOnAction(event -> {
             if (!textField.getText().isEmpty()) {
                 calendar.addEvent(new Event(currentDate.date, textField.getText()));
-                System.out.println(calendar.getEventNamesByDate(currentDate.date));
                 textField.setText("");
                 setEvents(calendar.getEventNamesByDate(currentDate.date), calendar, currentDate);
             }
