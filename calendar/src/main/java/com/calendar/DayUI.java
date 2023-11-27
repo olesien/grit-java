@@ -22,7 +22,7 @@ public class DayUI {
         ul.getChildren().clear(); //Clear all children
         for (Event event : events) {
             HBox li = new HBox();
-            li.setPadding(new Insets(6, 10, 0, 10));
+            li.setPadding(new Insets(6, 0, 0, 10));
 
 
             Text txt = new Text();
